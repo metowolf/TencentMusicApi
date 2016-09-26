@@ -49,6 +49,7 @@ class TencentMusicAPI{
             'n'=>$limit,
             'w'=>$s,
             'aggr'=>1,
+            'lossless'=>1,
             'cr'=>1,
         );
         return substr($this->curl($url.http_build_query($data)),9,-1);
