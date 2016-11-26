@@ -2,7 +2,7 @@
 /*!
  * Tencent(QQ) Music Api
  * https://i-meto.com
- * Version 20160922
+ * Version 20161126
  *
  * Copyright 2016, METO
  * Released under the MIT license
@@ -14,10 +14,9 @@ class TencentMusicAPI{
     protected $_USERAGENT='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.30 Safari/537.36';
     protected $_COOKIE='qqmusic_uin=12345678; qqmusic_key=12345678; qqmusic_fromtag=30; ts_last=y.qq.com/portal/player.html;';
     protected $_REFERER='http://y.qq.com/portal/player.html';
-    protected $_GUID;
+    protected $_GUID='547224975';
 
     public function __construct(){
-        $this->_GUID=time();
         $data=$this->curl('http://base.music.qq.com/fcgi-bin/fcg_musicexpress.fcg?json=3&guid='.$this->_GUID);
         $this->_KEY=json_decode(substr($data,13,-2),1)['key'];
     }
