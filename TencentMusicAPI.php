@@ -14,9 +14,10 @@ class TencentMusicAPI{
     protected $_USERAGENT='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.30 Safari/537.36';
     protected $_COOKIE='qqmusic_uin=12345678; qqmusic_key=12345678; qqmusic_fromtag=30; ts_last=y.qq.com/portal/player.html;';
     protected $_REFERER='http://y.qq.com/portal/player.html';
-    protected $_GUID='547224975';
+    protected $_GUID;
 
     public function __construct(){
+        $this->_GUID=abs(intval(rand()*2147483647)*intval(microtime()*1000)%10000000000);
         $data=$this->curl('http://base.music.qq.com/fcgi-bin/fcg_musicexpress.fcg?json=3&guid='.$this->_GUID);
         $this->_KEY=json_decode(substr($data,13,-2),1)['key'];
     }
