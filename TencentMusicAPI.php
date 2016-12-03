@@ -2,7 +2,7 @@
 /*!
  * Tencent(QQ) Music Api
  * https://i-meto.com
- * Version 20161130
+ * Version 20161203
  *
  * Copyright 2016, METO
  * Released under the MIT license
@@ -92,7 +92,7 @@ class TencentMusicAPI{
         $url=array();
         foreach($type as $key=>$vo){
             if($data[$key])$url[substr($key,5)]=$this->_CDN.$vo[0].$data['media_mid'].'.'.$vo[1].
-                '?vkey='.$this->_KEY.'&guid='.$this->_GUID;
+                '?vkey='.$this->_KEY.'&guid='.$this->_GUID.'&fromtag=30';
         }
         return json_encode($url);
     }
